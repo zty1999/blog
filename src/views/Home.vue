@@ -1,24 +1,25 @@
 <template>
   <div class="home">
-    <van-search
-      v-model="value"
-      show-action
-      placeholder="请输入搜索关键词"
-      @search="onSearch"
-      @cancel="onCancel"
-    />
-    <!-- <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
-    </van-swipe> -->
+   
+   <div class="content">
+    <div class="profile">
+      <h2 class="title">Spark</h2>
+      <div class="avatar">
+        <img src="http://www.laixiangran.cn/CDN/custom/img/bg1.jpg" alt="" class="avatar-img">
+      </div>
+    <div class="desc">一路向前</div>
+    
+    </div>
+    <div class="category">
+      <div class="item boke">博客</div>
+      <div class="item laboratory">实验室</div>
+    </div>
+   </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { Toast } from 'vant';
 // import { parse } from '../utils/http/parse';
 import request from '@/utils/http/request';
 export default defineComponent({
@@ -26,8 +27,7 @@ export default defineComponent({
   components: {},
   setup() {
     const value = ref('');
-    const onSearch = (val: string) => Toast(val);
-    const onCancel = () => Toast('取消');
+   
     const getBanners = () => {
       // let Banner = new Parse.Query('Banner');
       console.log('request', request);
@@ -45,16 +45,58 @@ export default defineComponent({
       //         }
       request
         .get('/Article?where={"company":{"$eq":"fHf9A4nkbo"}}')
-        .then(res => console.log(res));
+        .then((res: any) => console.log(res));
       // console.log(Banner);
     };
     getBanners();
     return {
       value,
-      onSearch,
-      onCancel,
+ 
       getBanners
     };
   }
 });
 </script>
+<style lang="scss">
+body {
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(0,0,0,.8);
+  background-image: url(http://www.laixiangran.cn/CDN/custom/img/bg1.jpg);
+}
+.content {
+  position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.title {
+  color:#ffffff;
+  
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin:0 auto;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+.desc {
+  color:grey;
+}
+.category {
+  display: flex;
+  justify-content: space-evenly;
+  margin:100px 0;
+  .item {
+    width: 200px;
+    padding:10px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+  }
+}
+</style>

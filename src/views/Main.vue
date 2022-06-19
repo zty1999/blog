@@ -1,25 +1,12 @@
 <template>
   <div id="main">
-    <van-config-provider :theme-vars="themeVars">
-      <van-nav-bar :title="title" />
-      <router-view />
-      <van-tabbar v-model="active" route>
-        <van-tabbar-item replate to="/home" icon="home-o">首页</van-tabbar-item>
-        <van-tabbar-item replate to="/lesson" icon="search"
-          >课程</van-tabbar-item
-        >
-        <van-tabbar-item replate to="/profile" icon="setting-o"
-          >我的</van-tabbar-item
-        >
-      </van-tabbar>
-    </van-config-provider>
+    
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, Ref } from 'vue';
 import { ref } from '@vue/reactivity';
-import data from '../components/data.json';
 import { useRoute } from 'vue-router';
 export default defineComponent({
   components: {},
@@ -54,8 +41,7 @@ export default defineComponent({
       // buttonPrimaryBackgroundColor: '#07c160',
     };
     const active = ref(0);
-    const state = ref(data);
-    console.log(title.value, state);
+    console.log(title.value);
 
     return { title, themeVars, active };
   },

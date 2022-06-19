@@ -15,17 +15,18 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/NotFound.vue')
   },
   {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/Home.vue'),
+    meta: { title: '首页' }
+  },
+  {
     path: '',
     name: 'Main',
     component: () => import('@/views/Main.vue'),
-    redirect: '/home',
+    redirect: '/lesson',
     children: [
-      {
-        path: '/home',
-        name: 'Home',
-        component: () => import('@/views/Home.vue'),
-        meta: { title: '首页' }
-      },
+     
       {
         path: '/lesson',
         name: 'Lesson',
