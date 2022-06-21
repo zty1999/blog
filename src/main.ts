@@ -3,12 +3,31 @@ import App from './App.vue'
 import router from './router';
 import store from './store';
 
+const app = createApp(App);
+
+
+
+
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 
 
-const app = createApp(App);
+// element-plus
+import './styles/element/index.scss';// 自定义主题样式 
+import 'element-plus/theme-chalk/dark/css-vars.css';// 暗黑模式
+import ElementPlus from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
-app.use(store).use(router).use(Antd);
+// element-plus 过渡动画
+// collapse
+import { ElCollapseTransition } from 'element-plus'
+// fade/zoom
+import 'element-plus/lib/theme-chalk/base.css'
+
+
+app.use(store).use(router).use(Antd).use(ElementPlus,{
+    locale: zhCn,
+});
+app.component(ElCollapseTransition.name, ElCollapseTransition)
 // 路由准备完毕再挂载
 router.isReady().then(() => app.mount('#app'));

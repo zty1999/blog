@@ -1,7 +1,15 @@
 <template>
-  <div id="main">
-    
-  </div>
+<el-container>
+  <el-header>
+     <nav-bar></nav-bar>
+  </el-header>
+      <el-container>
+        <el-aside width="200px">Aside</el-aside>
+        <el-main>Main</el-main>
+          <el-footer>Footer</el-footer>
+      </el-container>
+</el-container>
+
 </template>
 
 <script lang="ts">
