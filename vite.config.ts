@@ -9,22 +9,22 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // import Components from 'unplugin-vue-components/vite';
-// import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     // ["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" }], // `style: true` 会加载 less 文件],
-    // Components({
-    //   resolvers: [AntDesignVueResolver()],
-    // }),
-    AutoImport({
-      resolvers: [ElementPlusResolver()],
-    }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [AntDesignVueResolver(),ElementPlusResolver()],
     }),
+    // AutoImport({
+    //   resolvers: [ElementPlusResolver()],
+    // }),
+    // Components({
+    //   resolvers: [ElementPlusResolver()],
+    // }),
   ],
     resolve: {
       alias: {
@@ -35,7 +35,7 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "~/styles/element/index.scss" as *;`,
+          additionalData: `@use "~/assets/styles/element/index.scss" as *;`,
         },
       },
     },

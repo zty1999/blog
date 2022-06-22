@@ -7,7 +7,7 @@ NProgress.configure({ showSpinner: false }); // NProgress Configuration
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/dashboard'
+    redirect: '/home'
   },
   {
     path: '/:pathMatch(.*)*',
@@ -20,6 +20,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/Home.vue'),
     meta: { title: '首页' }
   },
+
+  {
+    path: '/blog-detail',
+    name: 'BlogDetail',
+    component: () => import('@/views/BlogDetail.vue'),
+    meta: { title: '博客详情' }
+  },
+  
   {
     path: '/dashboard',
     name: 'Dashboard',

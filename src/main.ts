@@ -13,8 +13,8 @@ import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 
 
 // element-plus
-import './styles/element/index.scss';// 自定义主题样式 
-import 'element-plus/theme-chalk/dark/css-vars.css';// 暗黑模式
+// import './assets/styles/element/index.scss';// 自定义主题样式 
+// import 'element-plus/theme-chalk/dark/css-vars.css';// 暗黑模式
 import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
@@ -22,7 +22,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 // collapse
 import { ElCollapseTransition } from 'element-plus'
 // fade/zoom
-import 'element-plus/lib/theme-chalk/base.css'
+// import 'element-plus/lib/theme-chalk/base.css'
 
 
 app.use(store).use(router).use(Antd).use(ElementPlus,{
