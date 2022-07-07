@@ -14,44 +14,31 @@ const routes: Array<RouteRecordRaw> = [
     name: 'not-found',
     component: () => import('@/views/NotFound.vue')
   },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import('@/views/Home.vue'),
-    meta: { title: '首页' }
-  },
 
-  {
-    path: '/blog-detail',
-    name: 'BlogDetail',
-    component: () => import('@/views/BlogDetail.vue'),
-    meta: { title: '博客详情' }
-  },
-  
   {
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('@/views/Dashboard.vue'),
-    meta: { title: '展板' ,icon: "dashboard",}
+    meta: { title: '展板', icon: 'dashboard' }
   },
   {
     path: '',
     name: 'Main',
     component: () => import('@/views/Main.vue'),
-    redirect: '/lesson',
+    redirect: '/home',
     children: [
-     
       {
-        path: '/lesson',
-        name: 'Lesson',
-        component: () => import('@/views/Lesson.vue'),
-        meta: { title: '课程' }
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/Home.vue'),
+        meta: { title: '首页' }
       },
+
       {
-        path: '/profile',
-        name: 'Profile',
-        component: () => import('@/views/Profile.vue'),
-        meta: { title: '我的' }
+        path: '/blog-detail/:id',
+        name: 'BlogDetail',
+        component: () => import('@/views/BlogDetail.vue'),
+        meta: { title: '博客详情' }
       }
     ]
   },

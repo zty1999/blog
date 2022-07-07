@@ -1,14 +1,14 @@
 <template>
-<el-container>
-  <el-header>
-     <nav-bar></nav-bar>
-  </el-header>
-      <el-container>
-        <el-aside width="200px">Aside</el-aside>
-        <el-main>Main</el-main>
-          <el-footer>Footer</el-footer>
-      </el-container>
-</el-container>
+  <el-container>
+    <el-header>
+      <nav-bar></nav-bar>
+    </el-header>
+    <el-scrollbar>
+      <router-view></router-view>
+    </el-scrollbar>
+    <!-- <el-aside width="200px">Aside</el-aside>
+          <el-footer>Footer</el-footer> -->
+  </el-container>
 
 </template>
 
