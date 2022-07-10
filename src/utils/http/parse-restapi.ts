@@ -6,15 +6,20 @@ interface Pointer {
   objectId: string;
 }
 export interface Post {
-  objectId?: string;
+  objectId: string;
   createdAt?: Date;
   updatedAt?: Date;
   title?: string;
   desc?: string;
   content?: string;
   category?: Pointer | undefined;
-  tags?: string[];
+  // tags?: Array<string> | string;
+  tags?: any;
   enabled?: boolean;
+  views?: number;
+}
+export class Post implements Post {
+  constructor() {}
 }
 export async function getPostList(): Promise<Post[] | []> {
   let resp: any = await request.get('/parse/Post');
@@ -49,4 +54,16 @@ export async function editPost(post: Post) {
   console.log(resp);
 
   return resp;
+}
+
+export async function getCateList(type: string): Promise<any[]> {
+  let where = {
+    type: type
+  };
+  let resp: any = await request.get('/parse/Category', { data: { where } });
+  if (!resp.error) {
+    return resp.results;
+  } else {
+    return [];
+  }
 }

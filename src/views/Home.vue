@@ -1,29 +1,18 @@
 <template>
   <div class="home-container" id="home-container">
-    <!-- <el-container> -->
-    <!-- <el-header class="header">
-        <div class="header-content">
-          <nav-bar></nav-bar>
-        </div>
-      </el-header> -->
     <div class="blog-list">
-      <blog-card v-for="(item, index) in posts" :blog="item" :key="index" shadow="hover" @click="toDetails(item)">
-      </blog-card>
+      <el-skeleton class="blog-skeleton" :loading="loading" :rows="5" :count="3" animated>
+        <blog-card v-for="(item, index) in posts" :blog="item" :key="index" shadow="hover" @click="toDetails(item)">
+        </blog-card>
+      </el-skeleton>
     </div>
-    <div class="side-bar">
-      <search-bar></search-bar>
-      <tag-card class="tag-box"></tag-card>
-    </div>
-    <!-- </el-container> -->
+    <side-bar></side-bar>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, Ref, nextTick } from 'vue';
-// import { parse } from '../utils/http/parse';
-import request from '@/utils/http/request';
-import { getPostList, Post } from '@/utils/http/parse-restapi';
-import PerfectScrollbar from 'perfect-scrollbar';
+import { getPostList, Post, getCateList } from '@/utils/http/parse-restapi';
 import dayjs from 'dayjs';
 export default defineComponent({
   name: 'Home',
@@ -32,28 +21,25 @@ export default defineComponent({
     const value = ref('');
     const items: Post[] = []
     const posts = ref(items)
-    getPostList().then(res => {
-      console.log(res)
-
-      res.forEach((item: Post) => {
+    const loading = ref(true)
+    const getData = async () => {
+      let list = await getPostList();
+      console.log(list)
+      list.forEach((item: Post) => {
         (item.createdAt as any) = dayjs(item.createdAt).format('YYYY-MM-DD');
+        // item.tags = item.tags ? item.tags.join(' ') : ''
       });
-      posts.value = res;
-      console.log(posts)
-    })
+      posts.value = list;
+      loading.value = false
+    }
+    getData()
 
-    nextTick(() => {
-      new PerfectScrollbar('#home-container');
 
-      // Initialize the plugin
-      const demo: any = document.querySelector('#home-container');
-      const ps = new PerfectScrollbar(demo);
-
-    });
     return {
       value,
       items,
-      posts
+      posts,
+      loading,
     };
   },
   methods: {
@@ -65,18 +51,12 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 body {
   font-size: 16px;
   // color: #fff;
   // background-color: rgba(0,0,0,.8);
   // background-image: url(http://www.laixiangran.cn/CDN/custom/img/bg1.jpg);
-}
-
-.home-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
 }
 
 .header {
@@ -89,19 +69,35 @@ body {
   margin: 0 auto;
 }
 
-.home-content {
-  margin: 0 auto;
+
+.home-container {
+  display: flex;
+  justify-content: center;
   max-width: 1200px;
+  margin: 0 auto;
 
-  .blog-list {
-    padding: 0 8px;
-  }
+}
 
-  tag-box {
-    padding: 0 8px;
 
+
+.blog-list {
+  flex: 1;
+  max-width: 900px;
+  padding: 10px 8px 0;
+
+  div {
+    height: 200px;
   }
 }
+
+.blog-skeleton {
+  width: 100%;
+  // height: 200px;
+}
+
+
+
+
 
 
 

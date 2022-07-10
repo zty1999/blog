@@ -1,11 +1,31 @@
 $shadow-light: 0px 0px 12px rgba(0, 0, 0, .12);
 
-$themeColor: #ffd04b;
+$themeColor: var(--sk-theme-color);
+$headingColor: var(--sk-heading-color); // 标题颜色
+$textColor: var(--sk-text-color); // 主文本色
+$textSecondaryColor: var(--sk-text-color-secondary); // 次文本色
+$textActiveColor: var(--sk-text-active-color); // 文本激活色
+$textTipColor: var(--sk-text-tip-color); // 提示文本色
+
+$TitleColor: var(--sk-text-color);
+
+// 导航栏
+$navBgColor: var(--sk-nav-bg-color);
+$navTextColor: var(--sk-text-color);
+$navTextActiveColor: var(--sk-text-active-color);
+
+
+
+
+// 页面区块
+$sectionBgColor: var(--sk-section-bg-color);
+$articleBgColor: var(--sk-article-bg-color);
+
 $WarningColor: #ffa728;
 $SuccessColor: #1dd19b;
 $DangerColor: #f05c27;
 
-$TitleColor: #252525;
+
 $AidColor: #878787; // 辅助色
 $BackColor: #f0f2f5; // 背景色
 

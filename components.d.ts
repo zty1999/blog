@@ -5,24 +5,28 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ArchiveList: typeof import('./src/components/archive-list.vue')['default']
     BlogCard: typeof import('./src/components/BlogCard.vue')['default']
+    BlogList: typeof import('./src/components/blog-list.vue')['default']
+    CateList: typeof import('./src/components/cate-list.vue')['default']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
+    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
+    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
     Footer: typeof import('./src/components/Footer.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    IEpMenu: typeof import('~icons/ep/menu')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchBar: typeof import('./src/components/search-bar.vue')['default']
     SideBar: typeof import('./src/components/SideBar.vue')['default']
-    TagCard: typeof import('./src/components/tag-card.vue')['default']
+    TagsCard: typeof import('./src/components/tags/tags-card.vue')['default']
+    TagsText: typeof import('./src/components/tags/tags-text.vue')['default']
   }
 }
 

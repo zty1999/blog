@@ -6,8 +6,10 @@
       </div>
     </template>
     <div class="tags">
-      <span v-for="o in tags" :key="o" class="text tags-item" :style="randomRGB()">{{ o }}</span>
+
+      <tags-text :tags="tags"></tags-text>
     </div>
+
   </el-card>
 </template>
 <script lang="ts" setup>
@@ -21,47 +23,30 @@ const props = defineProps({
   }
 })
 const tags = toRef(props, "tags");
+console.log(tags);
 
-const randomRGB = () => {
-  let R = Math.floor(Math.random() * 130 + 110)
-  let G = Math.floor(Math.random() * 130 + 110)
-  let B = Math.floor(Math.random() * 130 + 110)
-  return {
-    background: `rgb(${R},${G},${B},.5)`
-  }
-}
 </script>
 <style lang="scss" scoped>
+.box-card {
+  width: 280px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  background-color: $sectionBgColor;
+
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.text {
-  color: #fff;
-  font-size: 14px;
-}
+
 
 .tags {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}
-
-.tags-item {
-  // float: left;
-
-  width: 30%;
-  padding: 2px;
-  margin: 2px;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.box-card {
-  width: 280px;
-  padding: 0 10px;
-  margin: 0 10px;
 }
 </style>

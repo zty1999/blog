@@ -1,4 +1,4 @@
-export const particlesJson = {
+export const particlesCyanLine = {
   background: {
     color: {
       value: '#1e1f26'
@@ -54,7 +54,7 @@ export const particlesJson = {
         default: 'bounce'
       },
       random: false,
-      speed: 6,
+      speed: 3, // 粒子运动速度
       straight: false
     },
     number: {
@@ -62,7 +62,7 @@ export const particlesJson = {
         enable: true,
         area: 800
       },
-      value: 80
+      value: 100
     },
     opacity: {
       value: 0.5

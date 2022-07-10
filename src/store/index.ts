@@ -1,7 +1,9 @@
 import { createStore } from 'vuex';
 
 const defaultState = {
-  count: 0
+  count: 0,
+  particlesJson: {},
+  theme: 'base'
 };
 export default createStore({
   state() {
@@ -10,6 +12,14 @@ export default createStore({
   mutations: {
     increment(state: typeof defaultState) {
       state.count++;
+    },
+    switchParticles(state: typeof defaultState, particles) {
+      console.log('switchParticles');
+      state.particlesJson = particles;
+    },
+    switchTheme(state: typeof defaultState, theme) {
+      console.log('switchTheme');
+      state.theme = theme;
     }
   },
   actions: {

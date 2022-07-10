@@ -8,9 +8,11 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import IconsResolver from 'unplugin-icons/resolver';
+import Icons from 'unplugin-icons/vite';
 
 // import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+const pathSrc = resolve(__dirname, 'src');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,19 +22,36 @@ export default defineConfig({
     Components({
       resolvers: [
         // 自动注册图标组件
-        // IconsResolver({
-        //   enabledCollections: ['ep']
-        // }),
-        AntDesignVueResolver(),
+        IconsResolver({
+          enabledCollections: ['ep']
+        }),
+        // AntDesignVueResolver(),
         ElementPlusResolver()
       ]
+    }),
+    AutoImport({
+      // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+      imports: ['vue'],
+      // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
+      // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+      resolvers: [
+        ElementPlusResolver({
+          exclude: new RegExp(/^(?!.*loading-directive).*$/), // 解决使用v-loading报错 无法找到样式 element-plus/es/components/loading-directive/style/css 问题
+          importStyle: true
+        }),
+
+        // Auto import icon components
+        // 自动导入图标组件
+        IconsResolver({
+          prefix: 'Icon'
+        })
+      ],
+      dts: resolve(pathSrc, 'types', 'auto-imports.d.ts')
+    }),
+    Icons({
+      autoInstall: true,
+      compiler: 'vue3'
     })
-    // AutoImport({
-    //   resolvers: [ElementPlusResolver()],
-    // }),
-    // Components({
-    //   resolvers: [ElementPlusResolver()],
-    // }),
   ],
   resolve: {
     alias: {
@@ -43,7 +62,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "~/assets/styles/element/index.scss" as *;`
+        additionalData: `@use "~/assets/styles/base.scss" as *;`
       }
     }
   },

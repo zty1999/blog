@@ -37,10 +37,28 @@ ionic & electron & cordova & 小程序: 多平台
 对象存储/图床：七牛云
 服务开发框架版本：express xx.xx.xx + Vue xx.xx + postgresql xx.xx
 
-### 前端界面美化
+#### 前端界面美化
 
-particles.js 粒子动画
+**粒子动画 particles.js**
+
+```
+npm i particles.vue3 tsparticles
+```
+
 https://particles.js.org/
+
+**主题切换 css-vars-ponyfill**
+
+使用 css-vars-ponyfill，实现 css 自定义属性的转换
+
+切换主题时，切换预置的 css 变量值。
+
+**滚动条 perfectScrollbar 待解决**
+滚动条美化及浏览器兼容
+
+#### js 工具插件
+
+**时间、日期处理 day.js**
 
 ### 架构设计与分析
 
