@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --port 3300",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "node --max_old_space_size=10240 && vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -53,9 +53,12 @@ getData()
 }
 </style>
 <style lang="scss" scoped>
-::v-deep .section-box {
+// ::v-deep .section-box {
+//   width: 300px;
+//   box-shadow: none;
+// }
+:deep(.section-box) {
   width: 300px;
   box-shadow: none;
-
 }
 </style>
