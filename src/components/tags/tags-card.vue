@@ -13,8 +13,6 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import { defineProps, toRef } from 'vue';
-
 const props = defineProps({
   tags: {
     type: Array<number>,

@@ -8,3 +8,14 @@
 
 - 添加无 scope 属性的 style 标签，放置子组件可被外部自定义样式
 - 使用 ::v-deep 进行样式穿透 如：`::v-deep .tag-box`
+
+**linux 打包项目内存不足，打包进程被 killed**
+解决：build 命令 去掉 vue-tsc --noEmit 。
+
+```json
+//  "build": " vue-tsc --noEmit && vite build",
+ "build": " vite build",
+```
+
+**设置全局环境变量 process is not defined**
+process 已被移除，需使用 import.meta.dev 获取当前环境变量 MODE。

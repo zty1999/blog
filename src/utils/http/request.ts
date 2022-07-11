@@ -13,13 +13,19 @@ function getSession(key: string) {
   let json: any = window.sessionStorage.getItem(key);
   return JSON.parse(json);
 }
-export const PATH_URL: string = '';
-// export const PATH_URL: string = 'http://106.55.30.242/';
+// export const PATH_URL: string = '';
+console.log('process', import.meta, process.env.VUE_APP_BASE_API);
+
+export const PATH_URL: string =
+  import.meta.env.MODE == 'development'
+    ? 'http://localhost:1337/'
+    : 'http://intheway.cloud/';
+//  import.meta.env.VUE_APP_BASE_API
 // || import.meta.env.VITE_API_URL
 // 配置新建一个 axios 实例
 
 const request: AxiosInstance = axios.create({
-  // baseURL: PATH_URL,
+  baseURL: PATH_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

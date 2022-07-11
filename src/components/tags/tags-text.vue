@@ -2,8 +2,6 @@
   <span v-for="o in tags" :key="o" class="text tags-item" :style="randomRGB()">{{ o }}</span>
 </template>
 <script lang="ts" setup>
-import { defineProps, toRef } from 'vue';
-
 const props = defineProps({
   tags: {
     type: Array<number>,
