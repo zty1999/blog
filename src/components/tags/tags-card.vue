@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 const props = defineProps({
   tags: {
-    type: Array<number>,
+    type: Array<Number>,
     default: [...new Array(8).keys()]
 
   }

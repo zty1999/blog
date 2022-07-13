@@ -3,17 +3,17 @@
     <el-skeleton class="blog-skeleton" :loading="searchLoading" animated :rows="1">
       <search-bar class="section-box"></search-bar>
     </el-skeleton>
-    <el-skeleton class="blog-skeleton" :loading="sectionLoading" animated :rows="4" :count="4">
+    <el-skeleton class="blog-skeleton" :loading="sectionLoading" animated :rows="4" :count="3">
       <blog-list class="section-box" :list="recentPosts"></blog-list>
-      <archive-list class="section-box" :list="recentPosts"></archive-list>
+      <archive-list class="section-box" :list="archivePosts"></archive-list>
       <cate-list class="section-box" :list="cates"></cate-list>
-      <tags-card class="section-box"></tags-card>
+      <!-- <tags-card class="section-box"></tags-card> -->
     </el-skeleton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { getPostList, Post, getCateList } from '@/utils/http/parse-restapi';
+import { getPostList, Post, getCateList, getArchiveList } from '@/utils/http/parse-restapi';
 import dayjs from 'dayjs';
 
 const searchLoading = ref(true)
@@ -21,6 +21,7 @@ const sectionLoading = ref(true)
 const temp: any[] = []
 const recentPosts = ref(temp)
 const cates = ref(temp)
+const archivePosts = ref(temp)
 
 const getData = async () => {
   searchLoading.value = false
@@ -32,8 +33,11 @@ const getData = async () => {
   });
   list = list.sort((a: Post, b: Post): number => { return (a.createdAt as any) - (b.createdAt as any) })
   recentPosts.value = list;
+  console.log('cates', cates)
+
   cates.value = await getCateList('blog');
-  console.log(cates)
+  archivePosts.value = await getArchiveList();
+  console.log('archivePosts', archivePosts)
 
   sectionLoading.value = false
   console.log(recentPosts.value);

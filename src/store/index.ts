@@ -3,7 +3,8 @@ import { createStore } from 'vuex';
 const defaultState = {
   count: 0,
   particlesJson: {},
-  theme: 'base'
+  theme: 'base',
+  company: 'IO0Cg8TEUT'
 };
 export default createStore({
   state() {

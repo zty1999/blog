@@ -16,10 +16,10 @@ function getSession(key: string) {
 // export const PATH_URL: string = '';
 console.log('process', import.meta, process.env.VUE_APP_BASE_API);
 
-export const PATH_URL: string =
-  import.meta.env.MODE == 'development'
-    ? 'http://localhost:1337/'
-    : 'https://intheway.cloud/';
+export const PATH_URL: string = 'https://intheway.cloud/';
+// import.meta.env.MODE == 'development'
+//   ? 'http://localhost:1337/'
+//   : 'https://intheway.cloud/';
 //  import.meta.env.VUE_APP_BASE_API
 // || import.meta.env.VITE_API_URL
 // 配置新建一个 axios 实例

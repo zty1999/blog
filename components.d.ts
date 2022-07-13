@@ -6,6 +6,7 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ArchiveList: typeof import('./src/components/archive-list.vue')['default']
+    BaseFooter: typeof import('./src/components/base-footer.vue')['default']
     BlogCard: typeof import('./src/components/BlogCard.vue')['default']
     BlogList: typeof import('./src/components/blog-list.vue')['default']
     CateList: typeof import('./src/components/cate-list.vue')['default']

@@ -5,7 +5,7 @@
   </el-scrollbar>
   <!-- <el-aside width="200px">Aside</el-aside>
           <el-footer>Footer</el-footer> -->
-
+  <base-footer></base-footer>
 </template>
 
 <script lang="ts">

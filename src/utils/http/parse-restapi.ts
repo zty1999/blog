@@ -1,3 +1,4 @@
+import store from '@/store';
 import request from './request';
 
 interface Pointer {
@@ -64,10 +65,22 @@ export async function getCateList(type: string): Promise<any[]> {
     type: type
   };
   let resp: any = await request.get('parse/classes/Category', {
-    data: { where }
+    params: { where }
   });
   if (!resp.error) {
     return resp.results;
+  } else {
+    return [];
+  }
+}
+export async function getArchiveList(): Promise<any[]> {
+  let resp: any = await request.get('api/post/posts-archive', {
+    params: { company: store.state.company }
+  });
+  console.log('archive', resp);
+
+  if (!resp.error) {
+    return resp.data;
   } else {
     return [];
   }

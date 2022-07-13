@@ -5,8 +5,9 @@
         <span>归档</span>
       </div>
     </template>
-    <div v-for="item in list" :key="item.objectId" class="text item" @click="toPage(item.objectId)">{{ item.title
-    }}</div>
+    <div v-for="(item, index) in list" :key="index" class="text item" @click="toPage(item)">
+      {{ item.year }}年{{ item.month }} 月 ({{ item.count }})
+    </div>
 
   </el-card>
 </template>
@@ -15,9 +16,14 @@ import router from '@/router';
 import { Post } from '@/utils/http/parse-restapi';
 import { Ref } from 'vue';
 
+interface archive {
+  year: string,
+  month: string,
+  count: number
+}
 const props = defineProps({
   list: {
-    type: Array<Post>,
+    type: Array<archive>,
     default: []
   },
 })
@@ -28,8 +34,7 @@ const list = computed(() => {
 });
 console.log(list.value);
 
-const toPage = (id: string) => {
-  router.push('/blog-detail/' + id)
+const toPage = (item: archive) => {
 }
 
 </script>

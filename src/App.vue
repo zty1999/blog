@@ -67,6 +67,8 @@ export default defineComponent({
 // @use 'xxx.scss' as *;
 
 #app {
+  position: relative;
+  padding-bottom: 80px;
   min-height: 100vh;
   color: var(--sk-text-color);
   background-color: #f5f5f5;
