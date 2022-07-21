@@ -19,3 +19,39 @@
 
 **设置全局环境变量 process is not defined**
 process 已被移除，需使用 import.meta.dev 获取当前环境变量 MODE。
+
+**路由切换，组件不更新**
+原因：不同路由引用相同组件，会直接调用缓存，不调用 created、mounted。
+解决：
+
+1. 组件监听路由变化调用初始化方法
+
+```ts
+watch(
+  () => router,
+  router => {
+    initData();
+  }
+);
+```
+
+2. 父组件监听路由变化修改 `router-view` key 值,进行组件更新
+
+```html
+<router-view :key="key"></router-view>
+```
+
+```ts
+watch(
+  () => route.path,
+  path => (key.value = path + Math.random())
+);
+```
+
+3. 使用 `keep-alive` 的情况下 可使用 缓存实例生命周期
+
+```ts
+onActivated(() => {
+  key.value = route.path + Math.random();
+});
+```

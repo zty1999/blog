@@ -12,8 +12,6 @@
 </template>
 <script lang="ts" setup>
 import router from '@/router';
-import { Post } from '@/utils/http/parse-restapi';
-import { Ref } from 'vue';
 
 const props = defineProps({
   list: {
@@ -22,10 +20,8 @@ const props = defineProps({
   },
 })
 const list = computed(() => props.list);
-console.log(list.value);
-
 const toPage = (id: string) => {
-  router.push('/blog-detail/' + id)
+  router.push({ name: 'category', params: { id } })
 }
 
 </script>
@@ -36,7 +32,7 @@ const toPage = (id: string) => {
 
 .item {
   margin-bottom: 18px;
-  cursor: pointer;
+  cursor: $cursorPointer;
 }
 
 .box-card {

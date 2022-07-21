@@ -6,7 +6,7 @@ import { resolve } from 'path';
 // element-plus
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolver, LayuiVueResolver } from 'unplugin-vue-components/resolvers';
 import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 
@@ -26,7 +26,8 @@ export default defineConfig({
           enabledCollections: ['ep']
         }),
         // AntDesignVueResolver(),
-        ElementPlusResolver()
+        ElementPlusResolver(),
+        LayuiVueResolver()
       ]
     }),
     AutoImport({
@@ -39,6 +40,7 @@ export default defineConfig({
           exclude: new RegExp(/^(?!.*loading-directive).*$/), // 解决使用v-loading报错 无法找到样式 element-plus/es/components/loading-directive/style/css 问题
           importStyle: true
         }),
+        LayuiVueResolver(),
 
         // Auto import icon components
         // 自动导入图标组件

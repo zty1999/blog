@@ -4,9 +4,12 @@
             <div class="blog-detail shadow-light">
                 <div class="title">{{ blog.title }}</div>
                 <div class="desc">
-                    <tags-text class="tags" :tags="blog.tags"></tags-text>
+                    <tags-text v-if="blog.tags" :tags="blog.tags"></tags-text>
                     <span class="date">{{ blog.createdAt }}</span>
-                    <span class="views">{{ blog.views }}</span>
+                    <span class="views">
+                        <i-ep-view></i-ep-view>
+                        <span>{{ blog.views }}</span>
+                    </span>
                 </div>
                 <div class="content" :innerHTML="blog.content"></div>
             </div>
@@ -18,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, reactive, Ref, ref } from "vue";
 import { useRouter } from "vue-router";
-import { getPost, Post } from "@/utils/http/parse-restapi";
+import { getPost, Post, editPost } from "@/utils/http/parse-restapi";
 import dayjs from 'dayjs';
 
 export default defineComponent({
@@ -29,8 +32,11 @@ export default defineComponent({
         let post: Post = new Post();
         const blog = ref(post)
         getPost(blogId).then(post => {
+            console.log(post);
             (post.createdAt as any) = dayjs(post.createdAt).format('YYYY-MM-DD');
-            blog.value = post
+            post.views += 1;
+            blog.value = post;
+            editPost(post)
         })
 
         return {
@@ -38,7 +44,9 @@ export default defineComponent({
         };
     },
     methods: {
+        addViews() {
 
+        }
     }
 });
 </script>
@@ -73,14 +81,25 @@ export default defineComponent({
         }
 
         .desc {
-            text-align: right;
+            display: flex;
+            justify-content: end;
             padding: 10px 0;
-            font-size: 12px;
+            font-size: 13px;
             color: $textTipColor;
 
             span {
                 padding: 0 6px;
             }
+
+            .views {
+                display: flex;
+                align-items: center;
+
+                span {
+                    padding: 0 6px;
+                }
+            }
+
         }
     }
 }

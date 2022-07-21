@@ -14,7 +14,7 @@ function getSession(key: string) {
   return JSON.parse(json);
 }
 // export const PATH_URL: string = '';
-console.log('process', import.meta, process.env.VUE_APP_BASE_API);
+// console.log('process', import.meta, process.env.VUE_APP_BASE_API);
 
 export const PATH_URL: string = 'https://intheway.cloud/';
 // import.meta.env.MODE == 'development'
@@ -43,8 +43,6 @@ const request: AxiosInstance = axios.create({
 // 添加请求拦截器
 request.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    console.log(config);
-
     if (getSession('token')) {
       // config.headers.common['Authorization'] = `${getSession('token')}`
     }
@@ -60,7 +58,6 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response: AxiosResponse) => {
     const res: any = response.data;
-    console.log(res);
     if (res.status && !res.success) {
       ElMessage.error(res.message);
       // `token` 过期或者账号已在别处登录

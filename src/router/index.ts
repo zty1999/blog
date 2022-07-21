@@ -37,8 +37,32 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/blog-detail/:id',
         name: 'BlogDetail',
-        component: () => import('@/views/BlogDetail.vue'),
+        component: () => import('@/views/blog-detail.vue'),
         meta: { title: '博客详情' }
+      },
+      {
+        path: '/search',
+        name: 'search',
+        component: () => import('@/views/search.vue'),
+        meta: { title: '搜索' }
+      },
+      {
+        path: '/category/:id?',
+        name: 'category',
+        component: () => import('@/views/category.vue'),
+        meta: { title: '博客详情' }
+      },
+      {
+        path: '/archive/:year/:month',
+        name: 'archive',
+        component: () => import('@/views/archive.vue'),
+        meta: { title: '博客详情' }
+      },
+      {
+        path: '/timeline',
+        name: 'timeline',
+        component: () => import('@/views/timeline.vue'),
+        meta: { title: '时间轴' }
       }
     ]
   },

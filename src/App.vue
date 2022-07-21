@@ -1,9 +1,11 @@
 <template>
+
   <Particles id="tsparticles" :key="themeParticles" :particlesInit="particlesInit" :particlesLoaded="particlesLoaded"
     :options="particlesJson"></Particles>
   <el-config-provider :locale="locale">
     <router-view></router-view>
   </el-config-provider>
+
 </template>
 
 <script  lang="ts">
@@ -14,8 +16,11 @@ import zhCn from "element-plus/lib/locale/lang/zh-cn";
 import { loadFull } from "tsparticles";
 import { initThemes } from '@/config/theme';
 import { useStore } from "vuex";
-import { Engine, tsParticles } from "tsparticles-engine";
+// import { Engine, tsParticles } from "tsparticles-engine";
 import PerfectScrollbar from 'perfect-scrollbar';
+// import * as cursoreffects from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+// import clickEffect from "@/assets/js/cursor-effect.js";
+import { CursorSpecialEffects } from "@/assets/js/cursor-effects/fireworks.js";
 
 export default defineComponent({
   components: {
@@ -24,31 +29,27 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const particlesInit = async (engine: any) => {
-      console.log("Particles container init", engine);
       await loadFull(engine);
     }
     const particlesLoaded = async (container: any) => {
-      console.log("Particles container loaded", container);
     }
     let particlesJson = ref({})
     let themeParticles = ref('')
-    console.log(store.state.particlesJson.value);
-    if (!store.state.particlesJson.value) {
-      particlesJson.value = initThemes('base')
-    }
+    particlesJson.value = initThemes(store.state.theme)
     store.commit("switchParticles", particlesJson)
     watch(() => store.state.particlesJson,
       val => {
         console.log('change particles');
         particlesJson.value = val;
         themeParticles.value = store.state.theme;
-        console.log(val);
       })
     nextTick(() => {
       new PerfectScrollbar('#app');
       // Initialize the plugin
       const demo: any = document.querySelector('#app');
       const ps = new PerfectScrollbar(demo);
+      // clickEffect()
+      new CursorSpecialEffects()
     });
     return {
       locale: zhCn,
@@ -68,12 +69,14 @@ export default defineComponent({
 
 #app {
   position: relative;
-  padding-bottom: 80px;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   color: var(--sk-text-color);
   background-color: #f5f5f5;
-  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  // font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  //   'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-family: $fontFamily;
+
 }
 </style>
 

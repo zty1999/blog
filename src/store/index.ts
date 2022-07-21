@@ -1,5 +1,5 @@
 import { createStore } from 'vuex';
-
+import createPersistedState from "vuex-persistedstate";
 const defaultState = {
   count: 0,
   particlesJson: {},
@@ -7,6 +7,7 @@ const defaultState = {
   company: 'IO0Cg8TEUT'
 };
 export default createStore({
+  plugins: [createPersistedState()],
   state() {
     return defaultState;
   },

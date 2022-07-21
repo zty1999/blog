@@ -1,3 +1,5 @@
+@use './reset.scss' as *;
+
 $shadow-light: 0px 0px 12px rgba(0, 0, 0, .12);
 
 $themeColor: var(--sk-theme-color);
@@ -21,9 +23,47 @@ $navTextActiveColor: var(--sk-text-active-color);
 $sectionBgColor: var(--sk-section-bg-color);
 $articleBgColor: var(--sk-article-bg-color);
 
+
+
+
+
+// 提示类型
 $WarningColor: #ffa728;
 $SuccessColor: #1dd19b;
 $DangerColor: #f05c27;
+
+
+
+
+
+// 字体样式
+:root {
+    --sk-family-serif: -apple-system-ui-serif, ui-serif, ".NewYork-Medium", NewYorkMedium-Medium, "Calluna", serif;
+}
+
+$fontFamily: var(--sk-family-serif);
+
+
+
+
+
+
+// 鼠标指针样式
+$cursorPointer: url('@/assets/cursor/Skyrimouses/HandwritingSkyrim.cur'), pointer;
+$cursorNormal: url('@/assets/cursor/Skyrimouses/NormalSkyrim.cur'), default;
+
+body {
+    cursor: $cursorNormal;
+}
+
+a:hover {
+    cursor: $cursorPointer;
+}
+
+.pointer {
+    cursor: $cursorPointer;
+}
+
 
 
 $AidColor: #878787; // 辅助色

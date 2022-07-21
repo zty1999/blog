@@ -11,9 +11,9 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import router from '@/router';
 import { Post } from '@/utils/http/parse-restapi';
 import { Ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
   list: {
@@ -21,9 +21,10 @@ const props = defineProps({
     default: []
   },
 })
-const list = computed(() => props.list);
-console.log(list.value);
 
+const list = ref(props.list)
+// :Post[]
+const router = useRouter()
 const toPage = (id: string) => {
   router.push('/blog-detail/' + id)
 }
@@ -36,7 +37,7 @@ const toPage = (id: string) => {
 
 .item {
   margin-bottom: 18px;
-  cursor: pointer;
+  cursor: $cursorPointer;
 }
 
 .box-card {

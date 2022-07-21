@@ -12,9 +12,8 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import router from '@/router';
-import { Post } from '@/utils/http/parse-restapi';
-import { Ref } from 'vue';
+import { useRouter } from 'vue-router';
+
 
 interface archive {
   year: string,
@@ -32,9 +31,11 @@ const list = computed(() => {
 
   return data
 });
-console.log(list.value);
-
+const router = useRouter()
 const toPage = (item: archive) => {
+  router.push(`/archive/${item.year}/${item.month}`)
+
+
 }
 
 </script>
@@ -45,7 +46,7 @@ const toPage = (item: archive) => {
 
 .item {
   margin-bottom: 18px;
-  cursor: pointer;
+  cursor: $cursorPointer;
 }
 
 .box-card {

@@ -8,14 +8,12 @@
 </script>
 <style lang="scss" scoped>
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   height: 40px;
   line-height: 40px;
+  margin-top: 80px;
   text-align: center;
   background-color: $sectionBgColor;
   color: $textColor;
+  font-family: $fontFamily;
 }
 </style>

@@ -1,42 +1,43 @@
 <template>
-  <nav-bar></nav-bar>
-  <el-scrollbar>
-    <router-view></router-view>
-  </el-scrollbar>
-  <!-- <el-aside width="200px">Aside</el-aside>
+  <div id="main">
+    <el-scrollbar>
+      <nav-bar></nav-bar>
+      <!-- <el-scrollbar> -->
+      <div class="content">
+        <router-view :key="key"></router-view>
+      </div>
+      <!-- </el-scrollbar> -->
+      <!-- <el-aside width="200px">Aside</el-aside>
           <el-footer>Footer</el-footer> -->
-  <base-footer></base-footer>
+      <base-footer></base-footer>
+    </el-scrollbar>
+  </div>
+
 </template>
 
-<script lang="ts">
-import { defineComponent, Ref } from 'vue';
+<script lang="ts" setup>
 import { ref } from '@vue/reactivity';
-import { useRoute } from 'vue-router';
-export default defineComponent({
-  components: {},
-  watch: {
-    $route(route) {
-      // if you go to the redirect page, do not update the breadcrumbs
-      if (route.path.startsWith('/redirect/')) {
-        return;
-      }
-      this.title = this.$route.meta.title as string;
-      console.log(this.$route.meta);
+import { useRoute, useRouter } from 'vue-router';
+const router = useRouter()
+const route = useRoute()
+const title = ref("")
+// const key = computed(() => {
+//   console.log(route, route.path);
+//   return route.path + Math.random()
+// })
+const key = ref('');
+watch(() => route.path, path => key.value = path + Math.random())
+watch(() => router,
+  router => {
+    // if you go to the redirect page, do not update the breadcrumbs
+    if (router.currentRoute.value.path.startsWith('/redirect/')) {
+      return;
     }
-  },
-  setup() {
-    const route = useRoute();
-    console.log(route);
-    let title: Ref<string> = ref(route.meta.title as string);
-    console.log(title.value);
-    return { title };
-  },
-  methods: {
-    getTitle() {
-      console.log(this.$route.meta);
-    }
-  }
-});
+    title.value = route.meta.title as string;
+  })
+
+
+
 </script>
 
 <style lang="scss">
@@ -45,5 +46,18 @@ $themeColor: #2ac2d1;
 :root {
   --van-background-color-light: $themeColor;
   --van-button-primary-background-color: $themeColor;
+}
+
+.el-scrollbar {
+  height: 100vh;
+  // padding-bottom: 80px;
+}
+
+#main {
+  position: relative;
+
+  .content {
+    min-height: calc(100vh - 140px);
+  }
 }
 </style>

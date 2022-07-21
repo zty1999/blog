@@ -48,41 +48,38 @@ export default defineComponent({
         name: '首页',
         path: '/home'
       },
-      {
-        name: '学海无涯',
-        path: '/products'
-      },
+      // {
+      //   name: '学海无涯',
+      //   path: '/products'
+      // },
       {
         name: '时间轴',
-        path: '/examples'
+        path: '/timeline'
       },
       {
-        name: '标签',
-        path: '/products'
+        name: '分类',
+        path: '/category'
       },
       {
         name: 'demo',
         path: '/examples'
       },
-      {
-        name: '随笔',
-        path: '/products'
-      }
+      // {
+      //   name: '随笔',
+      //   path: '/products'
+      // }
     ]
     let router = useRouter();
     const fullPath = ref(router.currentRoute.value.fullPath)
-    console.log(fullPath);
     const store = useStore();
     const theme = ref("")
     theme.value = store.state.theme;
 
     watch(() => router.currentRoute.value.fullPath,
       val => {
-        console.log(val);
         fullPath.value = val;
       })
     const changeTheme = (theme: string | number | boolean): void => {
-      console.log(theme);
       let particlesJson = initThemes(theme as string);
       store.commit('switchTheme', theme)
       store.commit('switchParticles', particlesJson)

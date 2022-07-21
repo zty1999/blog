@@ -58,6 +58,9 @@ https://particles.js.org/
 
 #### js 工具插件
 
+**vuex-persistedstate vuex数据持久化**
+ 基于 vuex 数据持久化插件，结合本地存储localStorage和cookie，修改vuex数据时进行相应修改。基于该插件 修改本地持久化数据需通过vuex的commit，dispatch等方式提交修改才能修改成功。
+
 **时间、日期处理 day.js**
 
 ### 架构设计与分析

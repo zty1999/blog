@@ -3,22 +3,21 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import Particles from 'particles.vue3'; // 粒子动画
-
+// import layui from 'layui'; 
+    
 const app = createApp(App);
 
 // CSS base style sheet
-// import './assets/styles/base.scss';
-import './assets/styles/reset.scss';
 import './assets/styles/hover.css';
 import './assets/styles/animate.css';
 
 // import Antd from 'ant-design-vue';
 // import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 
-import PerfectScrollbar from 'perfect-scrollbar';
+// import PerfectScrollbar from 'perfect-scrollbar';
 
-import { initThemes } from '@/config/theme';
-let particlesJson = initThemes('base');
+// import { initThemes } from '@/config/theme';
+// let particlesJson = initThemes('base');
 
 // element-plus
 // import './assets/styles/element/index.scss';// 自定义主题样式

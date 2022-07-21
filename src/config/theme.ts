@@ -1,6 +1,7 @@
 import cssVars from 'css-vars-ponyfill';
 import { particlesCyanLine } from '@/assets/js/particles.js';
 import particlesSnow from '@/assets/particlesjs-config.json';
+import store from '@/store';
 
 interface cssvarsObj {
   [varname: string]: string;
@@ -51,12 +52,18 @@ const themes: Themes = {
   }
 };
 
+const families = {
+  serif: `"Source Han Serif",serif`
+};
+
 /* 
 params:
 theme    主题名称    "blackCyan"
 varObj   css样式属性声明对象  
 */
-export const initThemes = (theme: string) => {
+export const initThemes = (theme: string = 'base') => {
+  
+  store.commit("switchTheme", theme)
   let themeConfig = themes[theme];
   let cssvars = themeConfig.cssvars;
   const variables: any = {};
