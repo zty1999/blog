@@ -7,6 +7,16 @@ import Particles from 'particles.vue3'; // 粒子动画
     
 const app = createApp(App);
 
+// markdown展示
+import mavonEditor from 'mavon-editor';
+import 'mavon-editor/dist/css/index.css'
+app.use(mavonEditor)
+
+// 防止xss注入
+import vueDompurifyHtml from 'vue-dompurify-html';
+app.use(vueDompurifyHtml)
+
+
 // CSS base style sheet
 import './assets/styles/hover.css';
 import './assets/styles/animate.css';

@@ -63,6 +63,21 @@ https://particles.js.org/
 
 **时间、日期处理 day.js**
 
+**markdown展示 mavon-editor**
+
+**markdown目录展示 marked**
+尝试使用 remarkable + markdown-toc ，一直报错，无法正常使用，改为使用markdown解析器marked，使用marked的相关参数设置，获取当前markdown标题内容，生成目录。
+
+使用marked后，markdown内容已可被转换成html内容，但是由于全局重置样式影响，marked作为轻量级的解析器，没有自带相应的marked样式，转换后的markdown内容样式被全局重置样式覆盖，所以还是使用的mavon-editor 进行的内容渲染。
+
+**页面内容防止xss注入攻击 vue-dompurify-html**
+```ts
+import vueDompurifyHtml from 'vue-dompurify-html';
+app.use(vueDompurifyHtml)
+```
+```html
+<div class="content" v-dompurify-html="blog.content"></div>
+```
 ### 架构设计与分析
 
     整个项目采用主流的前后端分离项目架构，后端使用 Nodejs 开发，前端使用 Vue 开发。项目的用例设计思路如下：

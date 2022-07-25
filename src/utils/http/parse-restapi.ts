@@ -18,6 +18,7 @@ export interface EntifyPost {
   tags?: any;
   enabled?: boolean;
   views?: number;
+  editorType?: string;
 }
 type Point = { [x: number]: number; y: string };
 type P = keyof Point;
@@ -45,6 +46,8 @@ export class Post implements EntifyPost {
   tags?: any;
   enabled?: boolean;
   views?: number;
+  editorType?: string;
+  toc?: string;
   constructor() {}
 }
 
@@ -147,12 +150,13 @@ export async function destoryPost(objectId: string) {
   let resp: any = await request.delete(`parse/classes/Post/${objectId}`);
   return resp;
 }
-export async function editPost(post: Post) {
-  delete post.createdAt;
-  delete post.updatedAt;
-  let resp: any = await request.put(
+export async function editPost<T extends EntifyPost,K extends keyof T>(post: T):Promise<K> {
+  
+  let resp: any = await request.put(   
     `parse/classes/Post/${post.objectId}`,
-    post
+    {
+      views:post.views
+    }
   );
   return resp;
 }
