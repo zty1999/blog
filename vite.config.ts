@@ -16,6 +16,7 @@ const pathSrc = resolve(__dirname, 'src');
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',// 设置打包路径 项目非根目录部署时设置为 './'
   plugins: [
     vue(),
     // ["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" }], // `style: true` 会加载 less 文件],
