@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --port 3300",
+    "dev": "vite  --port 3300  --open",
     "build": " vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",
     "@layui/layui-vue": "^1.2.11",
+    "animate.css": "^4.1.1",
     "ant-design-vue": "^3.2.7",
     "autocjs": "^2.0.1",
     "axios": "^0.27.2",
@@ -28,7 +29,8 @@
     "vue-dompurify-html": "^3.0.0",
     "vue-router": "^4.0.16",
     "vuex": "^4.0.2",
-    "vuex-persistedstate": "^4.1.0"
+    "vuex-persistedstate": "^4.1.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.5",

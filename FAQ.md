@@ -55,3 +55,10 @@ onActivated(() => {
   key.value = route.path + Math.random();
 });
 ```
+
+
+## 待解决
+```json
+ "autocjs": "^2.0.1",
+ ```
+ autocjs 依赖问题报错无法启动，先去除

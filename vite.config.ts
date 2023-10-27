@@ -20,6 +20,8 @@ export default defineConfig({
     vue(),
     // ["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" }], // `style: true` 会加载 less 文件],
     Components({
+      dirs: ['src/components', 'src/**/components'], // 用于搜索组件的目录的相对路径 默认只搜索src/components/ 下的组件
+      // dts: resolve(pathSrc, 'components.d.ts'),
       resolvers: [
         // 自动注册图标组件
         IconsResolver({
@@ -27,7 +29,8 @@ export default defineConfig({
         }),
         // AntDesignVueResolver(),
         ElementPlusResolver(),
-        LayuiVueResolver()
+        LayuiVueResolver(),
+
       ]
     }),
     AutoImport({
@@ -64,6 +67,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        // sass-loader v10以下老版本 用的是prependData，不是additionalData
         additionalData: `@use "~/assets/styles/base.scss" as *;`
       }
     }

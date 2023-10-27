@@ -1,6 +1,6 @@
-@use './reset.scss' as *;
+@use "./reset.scss" as *;
 
-$shadow-light: 0px 0px 12px rgba(0, 0, 0, .12);
+$shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
 
 $themeColor: var(--sk-theme-color);
 $headingColor: var(--sk-heading-color); // 标题颜色
@@ -16,55 +16,50 @@ $navBgColor: var(--sk-nav-bg-color);
 $navTextColor: var(--sk-text-color);
 $navTextActiveColor: var(--sk-text-active-color);
 
-
-
-
 // 页面区块
 $sectionBgColor: var(--sk-section-bg-color);
 $articleBgColor: var(--sk-article-bg-color);
-
-
-
-
 
 // 提示类型
 $WarningColor: #ffa728;
 $SuccessColor: #1dd19b;
 $DangerColor: #f05c27;
 
+html {
+  font-size: 62.5%;
+}
 
-
+body {
+  height: 100%;
+  font-family: karla, sans-serif;
+  position: relative;
+}
 
 
 // 字体样式
 :root {
-    --sk-family-serif: -apple-system-ui-serif, ui-serif, ".NewYork-Medium", NewYorkMedium-Medium, "Calluna", serif;
+  --sk-family-serif: -apple-system-ui-serif, ui-serif, ".NewYork-Medium",
+    NewYorkMedium-Medium, "Calluna", serif;
 }
 
 $fontFamily: var(--sk-family-serif);
 
-
-
-
-
-
 // 鼠标指针样式
-$cursorPointer: url('@/assets/cursor/Skyrimouses/HandwritingSkyrim.cur'), pointer;
-$cursorNormal: url('@/assets/cursor/Skyrimouses/NormalSkyrim.cur'), default;
+$cursorPointer: url("@/assets/cursor/Skyrimouses/HandwritingSkyrim.cur"),
+  pointer;
+$cursorNormal: url("@/assets/cursor/Skyrimouses/NormalSkyrim.cur"), default;
 
 body {
-    cursor: $cursorNormal;
+  cursor: $cursorNormal;
 }
 
 a:hover {
-    cursor: $cursorPointer;
+  cursor: $cursorPointer;
 }
 
 .pointer {
-    cursor: $cursorPointer;
+  cursor: $cursorPointer;
 }
-
-
 
 $AidColor: #878787; // 辅助色
 $BackColor: #f0f2f5; // 背景色
@@ -72,15 +67,17 @@ $BackColor: #f0f2f5; // 背景色
 $tipColor: #dddddd; // 提示色
 
 .shadow-light {
-    box-shadow: $shadow-light;
+  box-shadow: $shadow-light;
 }
 
 .page-container {
-    margin: 10px 10px 0;
-    padding-bottom: 30px;
-
+  margin: 10px 10px 0;
+  padding-bottom: 30px;
 }
 
+.inherit {
+  vertical-align: inherit;
+}
 
 // @primary-color: #1890ff; // 全局主色
 // @link-color: #1890ff; // 链接色

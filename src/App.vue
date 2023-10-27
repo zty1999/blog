@@ -1,7 +1,7 @@
 <template>
 
-  <Particles id="tsparticles" :key="themeParticles" :particlesInit="particlesInit" :particlesLoaded="particlesLoaded"
-    :options="particlesJson"></Particles>
+  <!-- <Particles id="tsparticles" :key="themeParticles" :particlesInit="particlesInit" :particlesLoaded="particlesLoaded"
+    :options="particlesJson"></Particles> -->
   <el-config-provider :locale="locale">
     <router-view></router-view>
   </el-config-provider>

@@ -18,8 +18,9 @@ app.use(vueDompurifyHtml)
 
 
 // CSS base style sheet
+// import './assets/styles/animate.css';
+import 'animate.css';
 import './assets/styles/hover.css';
-import './assets/styles/animate.css';
 
 // import Antd from 'ant-design-vue';
 // import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'

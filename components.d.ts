@@ -5,11 +5,14 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AboutMe: typeof import('./src/templates/template1/components/aboutMe/AboutMe.vue')['default']
     ArchiveList: typeof import('./src/components/archive-list.vue')['default']
     BaseFooter: typeof import('./src/components/base-footer.vue')['default']
+    BaseVideo: typeof import('./src/templates/template1/components/common/BaseVideo.vue')['default']
     BlogCard: typeof import('./src/components/BlogCard.vue')['default']
     BlogList: typeof import('./src/components/blog-list.vue')['default']
     CateList: typeof import('./src/components/cate-list.vue')['default']
+    Contact: typeof import('./src/templates/template1/components/contact/Contact.vue')['default']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -20,7 +23,8 @@ declare module '@vue/runtime-core' {
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
-    Footer: typeof import('./src/components/Footer.vue')['default']
+    Footer: typeof import('./src/templates/template1/components/footer/Footer.vue')['default']
+    Header: typeof import('./src/templates/template1/home/components/header.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IEpMenu: typeof import('~icons/ep/menu')['default']
     IEpSearch: typeof import('~icons/ep/search')['default']
@@ -29,6 +33,7 @@ declare module '@vue/runtime-core' {
     LayTimelineItem: typeof import('@layui/layui-vue')['LayTimelineItem']
     NavBar: typeof import('./src/components/nav-bar.vue')['default']
     PostList: typeof import('./src/components/post-list.vue')['default']
+    Projects: typeof import('./src/templates/template1/components/projects/Projects.vue')['default']
     RecentList: typeof import('./src/components/recent-list.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -36,6 +41,7 @@ declare module '@vue/runtime-core' {
     SideBar: typeof import('./src/components/SideBar.vue')['default']
     TagsCard: typeof import('./src/components/tags/tags-card.vue')['default']
     TagsText: typeof import('./src/components/tags/tags-text.vue')['default']
+    Video: typeof import('./src/templates/template1/components/common/Video.vue')['default']
   }
 }
 
