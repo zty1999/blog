@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress'; // progress bar
 // import 'nprogress/css/nprogress.css'; // 进度条样式
 import {template} from '@/config/template'
@@ -100,7 +100,7 @@ console.log(routes);
 
 
 const router = createRouter({
-  history: createWebHistory(), // process.env.BASE_URL
+  history: createWebHashHistory(), // process.env.BASE_URL
   routes
 });
 router.beforeEach((to, from, next) => {
