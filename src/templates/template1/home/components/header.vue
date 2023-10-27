@@ -29,7 +29,7 @@
         <!-- <p><span class="smallerText">Psst! My portfolio is a WIP so viewing on desktop is the best for now!</span></p> -->
       </div>
       <div class="imageContainer">
-        <img src="assets/avatar.png" alt="">
+        <!-- <img src="@/assets/avatar.png" alt=""> -->
       </div>
       <p class="scrollDownText"><i class="fas fa-angle-down" aria-hidden="true"></i></p>
     </header>

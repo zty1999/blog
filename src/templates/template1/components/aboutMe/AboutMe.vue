@@ -13,23 +13,23 @@
             </p> -->
           </div>
           <div class="aboutMeImage">
-            <img src="assets/aboutMe.jpg" alt="">
+            <!-- <img src="@/assets/aboutMe.jpg" alt=""> -->
           </div>
         </div>
         <div  class=" animate__animated animate__fadeInUp">
           <h2>我的工具包💻</h2>
-          <ul class="skills">
-            <li><img src="assets/icons/html.svg" alt="">HTML5</li>
-            <li><img src="assets/icons/css.svg" alt="">CSS3</li>
-            <li><img src="assets/icons/sass.svg" alt="">萨斯</li>
-            <li><img src="assets/icons/javascript.svg" alt="">Javascript</li>
-            <li><img src="assets/icons/jquery.svg" alt="">查询</li>
-            <li><img src="assets/icons/react.svg" alt="">反应</li>
-            <li><img src="assets/icons/firebase.svg" alt="">火力地堡</li>
-            <li><img src="assets/icons/accessibility.svg" alt="">辅助功能</li>
-            <li><img src="assets/icons/github.svg" alt="">Github</li>
-            <li><img src="assets/icons/adobe.svg" alt="">Adobe 创意云</li>
-          </ul>
+          <!-- <ul class="skills">
+            <li><img src="@/assets/icons/html.svg" alt="">HTML5</li>
+            <li><img src="@/assets/icons/css.svg" alt="">CSS3</li>
+            <li><img src="@/assets/icons/sass.svg" alt="">萨斯</li>
+            <li><img src="@/assets/icons/javascript.svg" alt="">Javascript</li>
+            <li><img src="@/assets/icons/jquery.svg" alt="">查询</li>
+            <li><img src="@/assets/icons/react.svg" alt="">反应</li>
+            <li><img src="@/assets/icons/firebase.svg" alt="">火力地堡</li>
+            <li><img src="@/assets/icons/accessibility.svg" alt="">辅助功能</li>
+            <li><img src="@/assets/icons/github.svg" alt="">Github</li>
+            <li><img src="@/assets/icons/adobe.svg" alt="">Adobe 创意云</li>
+          </ul> -->
         </div>
       </div>
     </section>

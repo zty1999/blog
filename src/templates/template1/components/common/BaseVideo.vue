@@ -1,7 +1,7 @@
 <template>
-    <video class="videoOne">
+    <!-- <video class="videoOne">
         <source src="assets/one.mp4" type="video/mp4">
-    </video>
+    </video> -->
 </template>
 <script lang="ts" setup>
 </script>
